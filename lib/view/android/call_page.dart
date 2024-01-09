@@ -1,30 +1,51 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:platformconverter/controller/contactprovider.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class Call_page extends StatefulWidget {
-  final int? index;
-
-  const Call_page({super.key, this.index});
+class Call_Page extends StatefulWidget {
+  const Call_Page({super.key});
 
   @override
-  State<Call_page> createState() => _ContactSaveState();
+  State<Call_Page> createState() => _CallPageState();
 }
 
-class _ContactSaveState extends State<Call_page> {
-
-
+class _CallPageState extends State<Call_Page> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "call",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
+    return Consumer<ContactProvider>(
+        builder: (context, contactprovider, child) {
+          return Scaffold(
+            body: ListView.builder(
+              itemCount: contactprovider.contactlist.length,
+              itemBuilder: (context, index) {
+                var contactModal = contactprovider.contactlist[index];
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: contactModal.filepath != null
+                        ? FileImage(
+                      File(contactModal.filepath?? ""),
+                    )
+                        : null,
+                    child: contactModal.filepath == null ? Icon(Icons.person) : null,
+                  ),
+                  title: Text(contactModal.name ?? ""),
+                  subtitle: Text(contactModal.chat ?? ""),
+                  trailing:   IconButton(
+                    onPressed: () {
+                      var uri = Uri.parse(
+                          "tel:+91${contactModal.number}");
 
-      ),
-
-    );
+                      launchUrl(uri);
+                    },
+                    icon: Icon(Icons.call),
+                  ),
+                );
+              },
+            ),
+          );
+        });
   }
 }

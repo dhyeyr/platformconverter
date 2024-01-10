@@ -125,28 +125,15 @@ class _IosSettingsState extends State<IosSettings> {
             trailing:
             Consumer<ThemeProvider>(
               builder: (context, themeprovider, child) {
-                return   Positioned(
-                  top: 22,
-                  right: 15,
-                  child: CupertinoSwitch(
-                    value: themeprovider.currentTheme,
-                    onChanged: (value) {
-                      themeprovider.changeTheme(value);
-                    },
-                  ),
+                return   CupertinoSwitch(
+                  value: themeprovider.currentTheme,
+                  onChanged: (value) {
+                    themeprovider.changeTheme(value);
+                  },
                 );
               },
             ),
-            // Consumer<ThemeProvider>(
-            //     builder: (context, themeProvider, child) => CupertinoSwitch(
-            //       autofocus: true,
-            //       value: themeProvider.currentTheme,
-            //       onChanged: (bool value) {
-            //         themeProvider.changeTheme(value);
-            //         // isDark = value;
-            //         // setState(() {});
-            //       },
-            //     )),
+
             leading: Icon(
               CupertinoIcons.person,
               color: Colors.blueAccent,

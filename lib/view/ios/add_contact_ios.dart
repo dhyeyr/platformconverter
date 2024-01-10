@@ -79,10 +79,14 @@ class _ProfileState extends State<Profile> {
                         placeholder: "Full Name",
                         controller: contact.nameController,
                         keyboardType: TextInputType.name,
-                        prefix: Icon(CupertinoIcons.person_alt_circle, size: 25),
+                        prefix: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Icon(CupertinoIcons.person_alt_circle, size: 25),
+                        ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-
+                          border: Border.all(
+                              color: CupertinoColors.inactiveGray),
                         ),
                       ),
                     ),
@@ -102,10 +106,14 @@ class _ProfileState extends State<Profile> {
                         },
                         controller: contact.phoneController,
                         keyboardType: TextInputType.phone,
-                        prefix: Icon(CupertinoIcons.phone),
+                        prefix: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Icon(CupertinoIcons.phone),
+                        ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          border: Border.all(color: Colors.black38),
+                            border: Border.all(
+                                color: CupertinoColors.inactiveGray),
                         ),
                       ),
                     ),
@@ -114,7 +122,10 @@ class _ProfileState extends State<Profile> {
                       child: CupertinoTextFormFieldRow(
                         placeholder: "Chats Conversation",
                         keyboardType: TextInputType.name,
-                        prefix: Icon(CupertinoIcons.chat_bubble_text),
+                        prefix: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Icon(CupertinoIcons.chat_bubble_text),
+                        ),
                         validator: (value) {
                           if (value?.isEmpty ?? true) {
                             return " Plz Enter Bio";
@@ -125,7 +136,8 @@ class _ProfileState extends State<Profile> {
                         controller: contact.chatController,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          border: Border.all(color: Colors.black38),
+                          border: Border.all(
+                              color: CupertinoColors.inactiveGray),
                         ),
                       ),
                     ),

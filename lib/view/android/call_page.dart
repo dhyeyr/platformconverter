@@ -33,7 +33,7 @@ class _CallPageState extends State<Call_Page> {
                     child: contactModal.filepath == null ? Icon(Icons.person) : null,
                   ),
                   title: Text(contactModal.name ?? ""),
-                  subtitle: Text(contactModal.chat ?? ""),
+                  subtitle: Text(contactModal.number ?? ""),
                   trailing:   IconButton(
                     onPressed: () {
                       var uri = Uri.parse(

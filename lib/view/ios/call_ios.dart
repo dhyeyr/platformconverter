@@ -79,7 +79,9 @@ class _CallsState extends State<Calls> {
                 trailing: CupertinoButton(
                   child: const Icon(CupertinoIcons.phone),
                   onPressed: () {
-                    var uri = Uri.parse("tel:+91${cl.number ?? ""}");
+                    var uri = Uri.parse(
+                        "tel:+91${cl.number}");
+
                     launchUrl(uri);
                   },
                 ),
@@ -89,20 +91,17 @@ class _CallsState extends State<Calls> {
         );
       },
     )
-        : Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(
-          child: Text(
-            "Not Any Calls Yet...!",
-            style: TextStyle(
-                color: Color(0xff171DF7),
-                fontSize: MediaQuery.of(context).devicePixelRatio * 7),
+        : Padding(
+          padding: const EdgeInsets.only(top: 300),
+          child: Center(
+            child: Text(
+              "Not Any Calls Yet...!",
+              style: TextStyle(
+                  color: Color(0xff171DF7),
+                  fontSize: MediaQuery.of(context).devicePixelRatio * 7),
+            ),
           ),
-        ),
-      ],
-    );
+        );
   }
 }
 

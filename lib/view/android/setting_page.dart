@@ -162,10 +162,7 @@ class _ContactSaveState extends State<Settings> {
                                 child: Center(
                                   child: Text("Save",
                                       style: Theme.of(context).textTheme.bodyMedium
-        // TextStyle(
-        //   // fontSize: 20,
-        //     fontWeight: FontWeight.bold,
-        //    ),
+
                                   ),
                                 ),
                               ),
@@ -216,13 +213,11 @@ class _ContactSaveState extends State<Settings> {
               ),
               Consumer<ThemeProvider>(
                   builder: (context, themeProvider, child) => Switch(
-                        value: themeProvider.isDark,
-                        onChanged: (value) {
-                          themeProvider.changeTheme();
-                          // isDark = value;
-                          // setState(() {});
-                        },
-                      )),
+                    value: themeProvider.currentTheme,
+                    onChanged: (bool value) {
+                      themeProvider.changeTheme(value);
+                    },
+                  )),
             ]),
           ],
         ),

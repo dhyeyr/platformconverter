@@ -15,7 +15,8 @@ class Call_Page extends StatefulWidget {
 class _CallPageState extends State<Call_Page> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<ContactProvider>(
+    return Provider.of<ContactProvider>(context).contactlist.isNotEmpty
+     ? Consumer<ContactProvider>(
         builder: (context, contactprovider, child) {
           return Scaffold(
             body: ListView.builder(
@@ -46,6 +47,20 @@ class _CallPageState extends State<Call_Page> {
               },
             ),
           );
-        });
+        })
+        : Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: Text(
+            "Not Any Calls Yet...!",
+            style: TextStyle(
+                color: Color(0xff171DF7),
+                fontSize: MediaQuery.of(context).devicePixelRatio * 7),
+          ),
+        ),
+      ],
+    );
   }
 }

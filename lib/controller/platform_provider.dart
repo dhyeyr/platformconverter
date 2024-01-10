@@ -3,12 +3,12 @@ import 'package:flutter/cupertino.dart';
 class PlatformProvider extends ChangeNotifier {
 
   bool isAndroid = false;
-  bool isIos = true;
+  // bool isIos = true;
   bool ispro=false;
 
   void changeplatform() {
     isAndroid = !isAndroid;
-    isIos=!isIos;
+    // isIos=!isIos;
     notifyListeners();
   }
   void Pro() {

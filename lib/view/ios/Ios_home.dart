@@ -58,7 +58,7 @@ import 'package:platformconverter/controller/platform_provider.dart';
 import 'package:platformconverter/modal/contact_modal.dart';
 import 'package:platformconverter/view/ios/call_ios.dart';
 import 'package:platformconverter/view/ios/chat_ios.dart';
-import 'package:platformconverter/view/ios/profile_ios.dart';
+import 'package:platformconverter/view/ios/add_contact_ios.dart';
 import 'package:platformconverter/view/ios/setting_ios.dart';
 import 'package:provider/provider.dart';
 

@@ -8,9 +8,6 @@ import 'package:platformconverter/modal/contact_modal.dart';
 import 'package:provider/provider.dart';
 
 
-
-
-
 class Profile extends StatefulWidget {
   final int? index;
 
@@ -55,7 +52,7 @@ class _ProfileState extends State<Profile> {
                     Padding(
                       padding: const EdgeInsets.only(top: 30),
                       child: CircleAvatar(
-                        minRadius: 50,
+                        minRadius: 80,
                         backgroundImage: contact.filepath != null
                             ? FileImage(
                           File(contact.filepath!),
@@ -85,7 +82,7 @@ class _ProfileState extends State<Profile> {
                         prefix: Icon(CupertinoIcons.person_alt_circle, size: 25),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          border: Border.all(color: Colors.black38),
+
                         ),
                       ),
                     ),

@@ -96,3 +96,5 @@ class ContactProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+

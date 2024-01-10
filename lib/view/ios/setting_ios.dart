@@ -43,7 +43,6 @@ class _IosSettingsState extends State<IosSettings> {
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20)),
             subtitle: Text(
               "Update Profile Data",
-              style: TextStyle(color: Colors.black38),
             ),
           ),
           if (Provider.of<PlatformProvider>(context).ispro)
@@ -123,27 +122,31 @@ class _IosSettingsState extends State<IosSettings> {
               ),
             ),
           CupertinoListTile(
-            trailing: Consumer<ThemeProvider>(
-                builder: (context, themeProvider, child) => CupertinoSwitch(
-                  autofocus: true,
-                  value: themeProvider.isDark,
-                  onChanged: (value) {
-                    themeProvider.changeTheme();
-                    // isDark = value;
-                    // setState(() {});
-                  },
-                )),
-            // trailing: Consumer<ThemeProvider>(
-            //   builder: (BuildContext context, theme, Widget? child) {
-            //     return CupertinoSwitch(
+            trailing:
+            Consumer<ThemeProvider>(
+              builder: (context, themeprovider, child) {
+                return   Positioned(
+                  top: 22,
+                  right: 15,
+                  child: CupertinoSwitch(
+                    value: themeprovider.currentTheme,
+                    onChanged: (value) {
+                      themeprovider.changeTheme(value);
+                    },
+                  ),
+                );
+              },
+            ),
+            // Consumer<ThemeProvider>(
+            //     builder: (context, themeProvider, child) => CupertinoSwitch(
             //       autofocus: true,
-            //       value: theme.isDark,
-            //       onChanged: (value) {
-            //         theme.iosTheme();
+            //       value: themeProvider.currentTheme,
+            //       onChanged: (bool value) {
+            //         themeProvider.changeTheme(value);
+            //         // isDark = value;
+            //         // setState(() {});
             //       },
-            //     );
-            //   },
-            // ),
+            //     )),
             leading: Icon(
               CupertinoIcons.person,
               color: Colors.blueAccent,
@@ -152,52 +155,10 @@ class _IosSettingsState extends State<IosSettings> {
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20)),
             subtitle: Text(
               "Update Theme Data",
-              style: TextStyle(color: Colors.black38),
+
             ),
           ),
-          // CupertinoListTile(
-          //   title: Text("Theme"),
-          //   trailing: Consumer<ThemeProvider>(
-          //     builder: (BuildContext context, theme, Widget? child) {
-          //       return DropdownButton(
-          //         items: [
-          //           DropdownMenuItem(
-          //             child: Text(
-          //               "Light Mode",
-          //               style: TextStyle(color: Colors.black),
-          //             ),
-          //             value: 'light',
-          //           ),
-          //           DropdownMenuItem(
-          //             child: Text(
-          //               "Dark Mode",
-          //               style: TextStyle(color: Colors.black),
-          //             ),
-          //             value: 'dark',
-          //           ),
-          //           DropdownMenuItem(
-          //             child: Text(
-          //               "System",
-          //               style: TextStyle(color: Colors.black),
-          //             ),
-          //             value: 'system',
-          //           ),
-          //         ],
-          //         value: theme.currnettheme,
-          //         hint: Text(
-          //           "Selected Theme",
-          //           style: TextStyle(color: Colors.black),
-          //         ),
-          //         onChanged: (String? value) {
-          //           // theme.currnettheme = value!;
-          //           theme.settheme(value ?? 'system');
-          //
-          //           // theme.getTheme();
-          //         },
-          //       );
-          //     },
-          //   ),
-          // ),
+
         ],
       ),
     );
